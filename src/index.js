@@ -6,17 +6,20 @@ const form = document.querySelector("#form");
 const btn = document.querySelector("#btn");
 
 function clearInputs() {
-  console.log("called");
   unixInput.setAttribute("value", "");
   dateInput.setAttribute("value", "");
   dateInput.setAttribute("value", "");
 }
 
+function setBtnAttributes(attrValue, attrCls) {
+  btn.setAttribute("value", attrValue);
+  btn.setAttribute("type", attrValue);
+  btn.setAttribute("class", attrCls);
+}
+
 form.addEventListener("reset", (event) => {
   clearInputs();
-  btn.setAttribute("value", "Submit");
-  btn.setAttribute("type", "Submit");
-  btn.setAttribute("class", "submit-btn");
+  setBtnAttributes("Submit", "submit-btn");
 });
 
 form.addEventListener("submit", (event) => {
@@ -31,7 +34,5 @@ form.addEventListener("submit", (event) => {
     unixInput.setAttribute("value", timeStamp);
   }
 
-  btn.setAttribute("value", "Reset");
-  btn.setAttribute("type", "Reset");
-  btn.setAttribute("class", "reset-btn");
+  setBtnAttributes("Reset", "reset-btn");
 });
